@@ -1,0 +1,10 @@
+<div class="content">
+    <h1>My Todos</h1>
+    <div *ngFor="let todo of todoList" class="todo-list">
+        <div class="flex-items status-sign" [ngClass]="todo.isCompleted? 'is-complete' : 'is-not-complete'"></div>
+            <h2 class="flex-items">{{todo.description}}</h2> <small class="flex-items" [innerHTML]="todo.isCompleted? '(Completed)' : '(Pending)'"></small>
+            <button (click)="updateTodo(todo.id)" type="button" [innerHTML]="todo.isCompleted?  'Pend Task' : 'Complete Task'" class="flex-items custom-button"></button>
+            <button (click)="removeTodo(todo.id)" type="button"class="flex-items danger-button">Remove Todo</button>
+    </div>
+    <input type="text" id="text-field" (change)="addTodo($event)" placeholder="Add Todo...">
+</div>
